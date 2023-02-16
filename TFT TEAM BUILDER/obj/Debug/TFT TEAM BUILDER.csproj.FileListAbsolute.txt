@@ -1,0 +1,22 @@
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.AssemblyReference.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.SuggestedBindingRedirects.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\App.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER_MarkupCompile.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER_MarkupCompile.lref
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\MainWindow.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\AllChampions.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\AllItems.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Debug\TFT TEAM BUILDER.exe.config
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Debug\TFT TEAM BUILDER.exe
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Debug\TFT TEAM BUILDER.pdb
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\App.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\AllChampions.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\AllItems.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\MainWindow.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.g.resources
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT_TEAM_BUILDER.Properties.Resources.resources
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.GenerateResource.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.CoreCompileInputs.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.exe
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.pdb

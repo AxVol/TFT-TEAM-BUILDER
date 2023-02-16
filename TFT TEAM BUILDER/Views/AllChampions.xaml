@@ -3,12 +3,29 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TFT_TEAM_BUILDER.Views"
+      xmlns:local="clr-namespace:TFT_TEAM_BUILDER.Views" 
+      xmlns:viewModels="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AllChampions">
 
-    <Grid Background="AntiqueWhite">
+    <Page.DataContext>
+        <viewModels:MainViewModel/>
+    </Page.DataContext>
+
+    <Grid Background="#1E1112">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         
+        <Button Margin="5" Width="50" Content="Назад" HorizontalAlignment="Left" Command="{Binding backCommand}">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="11"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Frame Content="{Binding CurrentView}"/>
     </Grid>
 </Page>

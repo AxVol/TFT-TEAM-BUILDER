@@ -12,23 +12,6 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <Style TargetType="Button" x:Key="MenuBtn">
-            <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Width" Value="160"/>
-            <Setter Property="Height" Value="26"/>
-            <Setter Property="Background" Value="#334253"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="BorderThickness" Value="0"/>
-        </Style>
-        <Style TargetType="ListBox" x:Key="bld">
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="7"/>
-                </Style>
-            </Style.Resources>
-        </Style>
-
         <Style BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="{x:Type RadioButton}" x:Key="MenuToggle">
             <Style.Setters>
                 <Setter Property="Template">
@@ -56,18 +39,18 @@
     <Grid>
         <Grid Background="#212a35">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80*"/>
-                <ColumnDefinition Width="350*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="650"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <RadioButton Style="{StaticResource MenuToggle}" Content="Мои Сборки" Height="50" FontSize="14" Foreground="White"/>
+                <RadioButton Style="{StaticResource MenuToggle}" Content="Мои Сборки" Height="50" FontSize="14" Foreground="White" Command="{Binding myBuildsCommand}"/>
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Создать сборку" Height="50" FontSize="14" Foreground="White"/>
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Все герои" Height="50" FontSize="14" Foreground="White" Command="{Binding allChampionsCommand}"/>
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Все предметы" Height="50" FontSize="14" Foreground="White" Command="{Binding allItemCommand}"/>
             </StackPanel>
 
             <Grid Grid.Column="1">
-                <Frame Content="{Binding CurrentView}"/>
+                <Frame Content="{Binding CurrentView}" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
     </Grid>

@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Media.Imaging;
 
 namespace TFT_TEAM_BUILDER.Models
 {
-    internal class Champions
+    class Champions
     {
+        private BitmapSource bitmapImage;
+
+        public string id { get; set; }
+        public string name { get; set; }
+        public int tier { get; set; }
+        public Image image { get; set; }
+        public string[] traits { get; set; } 
+
+        public BitmapSource pathToImage
+        {
+            get 
+            {
+                bitmapImage = ImageConventor.ConvertImage(image);
+
+                return bitmapImage;
+            } 
+        }
     }
 }

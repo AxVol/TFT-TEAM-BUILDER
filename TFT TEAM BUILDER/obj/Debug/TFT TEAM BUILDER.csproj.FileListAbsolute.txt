@@ -20,3 +20,11 @@ D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.CoreCompileInputs.cache
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.exe
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.pdb
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Debug\Newtonsoft.Json.dll
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Debug\Newtonsoft.Json.xml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.Fody.CopyLocal.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.Fody.RuntimeCopyLocal.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.CopyComplete
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\MyBuilds.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\MyBuilds.baml

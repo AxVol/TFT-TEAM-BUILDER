@@ -6,26 +6,32 @@
       xmlns:local="clr-namespace:TFT_TEAM_BUILDER.Views" 
       xmlns:viewModels="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="650"
       Title="AllChampions">
 
     <Page.DataContext>
-        <viewModels:MainViewModel/>
+        <viewModels:AllChampionsViewModel/>
     </Page.DataContext>
 
-    <Grid Background="#1E1112">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <Button Margin="5" Width="50" Content="Назад" HorizontalAlignment="Left" Command="{Binding backCommand}">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="11"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Frame Content="{Binding CurrentView}"/>
+    <Grid Background="#212a35">
+        <ScrollViewer>
+            <ItemsControl ItemsSource="{Binding champions}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="100" Margin="5">
+                            <Image Source="{Binding pathToImage}"/>
+                            <TextBlock Margin="5" FontSize="20" Text="{Binding name}" Foreground="White"/>
+                            <TextBlock Margin="0,0,5,0" TextAlignment="Right" FontSize="20" Text="{Binding tier}" Foreground="White"/>
+                            <ItemsControl Margin="5" ItemsSource="{Binding traits}" Foreground="White" VerticalAlignment="Bottom" FontSize="15"/>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Page>

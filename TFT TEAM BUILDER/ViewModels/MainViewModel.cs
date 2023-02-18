@@ -11,9 +11,11 @@ namespace TFT_TEAM_BUILDER.ViewModels
     {
         public Commands allItemCommand { get; set; }
         public Commands allChampionsCommand { get; set; }
+        public Commands myBuildsCommand { get; set; }
 
         public AllChampionsViewModel allChampionVM { get; set; }
         public AllItemsViewModel allItemsVM { get; set; }
+        public MyBuildsViewModel myBuilds { get; set; }
 
         private object currentView;
 
@@ -32,6 +34,9 @@ namespace TFT_TEAM_BUILDER.ViewModels
         {
             allChampionVM = new AllChampionsViewModel();
             allItemsVM = new AllItemsViewModel();
+            myBuilds = new MyBuildsViewModel();
+
+            CurrentView = myBuilds;
 
             allChampionsCommand = new Commands(obj =>
             {
@@ -41,6 +46,11 @@ namespace TFT_TEAM_BUILDER.ViewModels
             allItemCommand = new Commands(obj =>
             {
                 CurrentView = allItemsVM;
+            });
+
+            myBuildsCommand = new Commands(obj =>
+            {
+                CurrentView = myBuilds;
             });
         }
     }

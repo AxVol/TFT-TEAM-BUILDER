@@ -44,7 +44,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Мои Сборки" Height="50" FontSize="14" Foreground="White" Command="{Binding myBuildsCommand}"/>
-                <RadioButton Style="{StaticResource MenuToggle}" Content="Создать сборку" Height="50" FontSize="14" Foreground="White"/>
+                <RadioButton Style="{StaticResource MenuToggle}" Content="Создать сборку" Height="50" FontSize="14" Foreground="White" Command="{Binding createBuildCommand}"/>
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Все герои" Height="50" FontSize="14" Foreground="White" Command="{Binding allChampionsCommand}"/>
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Все предметы" Height="50" FontSize="14" Foreground="White" Command="{Binding allItemCommand}"/>
             </StackPanel>

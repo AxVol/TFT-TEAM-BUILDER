@@ -66,7 +66,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\ImageConventor.cs" />
+    <Compile Include="ViewModels\CreateBuildViewModel.cs" />
     <Compile Include="ViewModels\MyBuildsViewModel.cs" />
+    <Compile Include="Views\CreateBuild.xaml.cs">
+      <DependentUpon>CreateBuild.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MyBuilds.xaml.cs">
       <DependentUpon>MyBuilds.xaml</DependentUpon>
     </Compile>
@@ -75,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AllItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreateBuild.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,5 +15,8 @@
         <DataTemplate DataType="{x:Type viewModel:MyBuildsViewModel}">
             <view:MyBuilds/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:CreateBuildViewModel}">
+            <view:CreateBuild/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

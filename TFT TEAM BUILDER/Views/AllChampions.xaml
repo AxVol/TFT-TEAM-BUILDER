@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Grid Background="#212a35">
-        <ScrollViewer>
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <ItemsControl ItemsSource="{Binding champions}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>

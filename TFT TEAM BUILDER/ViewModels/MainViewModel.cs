@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TFT_TEAM_BUILDER.Core;
+using TFT_TEAM_BUILDER.Views;
 
 namespace TFT_TEAM_BUILDER.ViewModels
 {
@@ -12,10 +13,12 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public Commands allItemCommand { get; set; }
         public Commands allChampionsCommand { get; set; }
         public Commands myBuildsCommand { get; set; }
+        public Commands createBuildCommand { get; set; }
 
         public AllChampionsViewModel allChampionVM { get; set; }
         public AllItemsViewModel allItemsVM { get; set; }
-        public MyBuildsViewModel myBuilds { get; set; }
+        public MyBuildsViewModel myBuildsVM { get; set; }
+        public CreateBuildViewModel createBuildVM { get; set; }
 
         private object currentView;
 
@@ -34,9 +37,10 @@ namespace TFT_TEAM_BUILDER.ViewModels
         {
             allChampionVM = new AllChampionsViewModel();
             allItemsVM = new AllItemsViewModel();
-            myBuilds = new MyBuildsViewModel();
+            myBuildsVM = new MyBuildsViewModel();
+            createBuildVM = new CreateBuildViewModel();
 
-            CurrentView = myBuilds;
+            CurrentView = myBuildsVM;
 
             allChampionsCommand = new Commands(obj =>
             {
@@ -50,7 +54,12 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
             myBuildsCommand = new Commands(obj =>
             {
-                CurrentView = myBuilds;
+                CurrentView = myBuildsVM;
+            });
+
+            createBuildCommand = new Commands(obj =>
+            {
+                CurrentView = createBuildVM;
             });
         }
     }

@@ -28,3 +28,5 @@ D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.CopyComplete
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\MyBuilds.g.cs
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\MyBuilds.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\CreateBuild.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\CreateBuild.baml

@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace TFT_TEAM_BUILDER.Core
 {
-    class Commands : ICommand
+    public class Commands : ICommand
     {
         private Action<object> execute;
         private Func<object, bool> canExecute;

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TFT_TEAM_BUILDER.Core;
-using TFT_TEAM_BUILDER.Views;
+﻿using TFT_TEAM_BUILDER.Core;
 
 namespace TFT_TEAM_BUILDER.ViewModels
 {

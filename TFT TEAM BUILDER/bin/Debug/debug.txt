@@ -1,0 +1,1 @@
+TargetCollection: System.Collections.ObjectModel.ObservableCollection`1[TFT_TEAM_BUILDER.Models.Champions], TargetItem: TFT_TEAM_BUILDER.Models.Champions, DATA: TFT_TEAM_BUILDER.Models.Champions

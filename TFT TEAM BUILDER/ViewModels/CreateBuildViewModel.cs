@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using TFT_TEAM_BUILDER.Models;
 using TFT_TEAM_BUILDER.Core;
-using TFT_TEAM_BUILDER.Views;
+using GongSolutions.Wpf.DragDrop;
 
 namespace TFT_TEAM_BUILDER.ViewModels
 {
     class CreateBuildViewModel : ObservableObject
     {
+        private static IDropTarget instance;
+        public static IDropTarget Instance => instance = new ChromerDragDrop();
+
         private string text;
 
         public ObservableCollection<Champions> champions { get; set; }
         public ObservableCollection<Champions> sortList { get; set; }
+        public ObservableCollection<Champions> slot0 { get; set; }
+        public ObservableCollection<Champions> slot1 { get; set; }
 
         public string SortEvent {
             get
@@ -30,7 +30,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
                 foreach (Champions champion in champions)
                 {
-                    if (champion.name.Contains(text))
+                    if (champion.name.ToLower().StartsWith(text.ToLower()))
                     {
                         sortList.Add(champion);
                     }
@@ -42,6 +42,8 @@ namespace TFT_TEAM_BUILDER.ViewModels
         {
             sortList = new ObservableCollection<Champions>(JsonData.GetChampions());
             champions = new ObservableCollection<Champions>(JsonData.GetChampions());
+            slot0 = new ObservableCollection<Champions>();
+            slot1 = new ObservableCollection<Champions>();
         }
     }
 }

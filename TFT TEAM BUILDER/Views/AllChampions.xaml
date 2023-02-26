@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:TFT_TEAM_BUILDER.Views" 
       xmlns:viewModels="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="650"
+      d:DesignHeight="720" d:DesignWidth="1070"
       Title="AllChampions">
 
     <Page.DataContext>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TFT_TEAM_BUILDER" xmlns:viewModels="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="TFT Builder" Height="450" Width="800">
+        Title="TFT Builder" Height="720" Width="1220">
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
@@ -40,7 +40,7 @@
         <Grid Background="#212a35">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="650"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Мои Сборки" Height="50" FontSize="14" Foreground="White" Command="{Binding myBuildsCommand}"/>

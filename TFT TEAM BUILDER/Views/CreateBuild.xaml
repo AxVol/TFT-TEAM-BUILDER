@@ -4,9 +4,11 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:TFT_TEAM_BUILDER.Views"
+      xmlns:core="clr-namespace:TFT_TEAM_BUILDER.Core"
+      xmlns:dd="urn:gong-wpf-dragdrop"
       xmlns:viewModels="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="650"
+      d:DesignHeight="720" d:DesignWidth="1070"
       Title="CreateBuild">
 
     <Page.DataContext>
@@ -15,13 +17,21 @@
 
     <Grid Background="#212a35">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
             <TextBox BorderThickness="0" Margin="2" Background="#282828" Foreground="White" Height="20" VerticalAlignment="Top" Text="{Binding SortEvent, UpdateSourceTrigger=PropertyChanged}"/>
-            <ListView Background="#212a35" Margin="2,25,2,2" ItemsSource="{Binding sortList}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView Background="#212a35" 
+                      Margin="2,25,2,2" 
+                      Width="150"
+                      ItemsSource="{Binding sortList}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -35,10 +45,39 @@
             </ListView>
         </Grid>
         <Grid Grid.Column="1">
-            <ListView Background="#212a35" Margin="2,25,2,2">
+            <ListView Background="#212a35" 
+                      Margin="380,300,380,20"
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot0}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="123"/>
+                        <Grid>
+                            <Image Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView Background="#212a35" 
+                      Margin="250,300,380,20"
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot1}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                        </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

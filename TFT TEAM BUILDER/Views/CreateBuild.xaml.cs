@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TFT_TEAM_BUILDER.Core;
+using TFT_TEAM_BUILDER.ViewModels;
 
 namespace TFT_TEAM_BUILDER.Views
 {

@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using TFT_TEAM_BUILDER.Models;
+using TFT_TEAM_BUILDER.ViewModels;
 
 namespace TFT_TEAM_BUILDER.Core
 {
@@ -27,29 +28,43 @@ namespace TFT_TEAM_BUILDER.Core
             if (dropInfo.TargetCollection is ObservableCollection<Champions> targetCollection)
             {
                 Champions dropChampion = dropInfo.Data as Champions;
+                var collection = dropInfo.DragInfo.SourceCollection as ObservableCollection<Champions>;
 
-                if (targetCollection.Count == 0)
+                if (collection.Count > 2 && targetCollection.Count > 2)
+                { 
+                    return;
+                }
+                else if (targetCollection.Count > 2)
                 {
+                    collection.Clear();
+                    CreateBuildViewModel.OfferList(dropChampion);
+                }
+                else if (collection.Count == 1 && targetCollection.Count == 0) 
+                {
+                    collection.Clear();
                     targetCollection.Add(dropChampion);
+                }
+                else if (targetCollection.Count == 1 && collection.Count == 1) 
+                {
+                    Champions tempChampion = targetCollection[0];
+
+                    targetCollection.Clear();
+                    collection.Clear();
+
+                    targetCollection.Add(dropChampion);
+                    collection.Add(tempChampion);
+
+                }
+                else if (targetCollection.Count == 1)
+                {
+                    targetCollection.Clear();
+                    targetCollection.Add(dropChampion);
+                    CreateBuildViewModel.OfferList(dropChampion);
                 }
                 else
                 {
-                    var collection = dropInfo.DragInfo.SourceCollection as ObservableCollection<Champions>;
-
-
-                    if (collection.Count > 2)
-                    {
-                        return;
-                    }
-                    else if (targetCollection.Count > 2)
-                    {
-                        collection.Clear();
-                    }
-                    else
-                    {
-                        targetCollection.Clear();
-                        targetCollection.Add(dropChampion);
-                    }
+                    targetCollection.Add(dropChampion);
+                    CreateBuildViewModel.OfferList(dropChampion);
                 }
             }
         }

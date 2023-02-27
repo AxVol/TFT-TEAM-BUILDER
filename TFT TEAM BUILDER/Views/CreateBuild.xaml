@@ -19,12 +19,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="190"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
             <TextBox BorderThickness="0" Margin="2" Background="#282828" Foreground="White" Height="20" VerticalAlignment="Top" Text="{Binding SortEvent, UpdateSourceTrigger=PropertyChanged}"/>
             <ListView Background="#212a35" 
-                      Margin="2,25,2,2" 
+                      Margin="-40,25,0,0" 
                       Width="150"
                       ItemsSource="{Binding sortList}" 
                       ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
@@ -44,9 +45,53 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
+
+        <Grid Grid.Column="2">
+            <TextBlock Text="Может подойти:" Foreground="White" FontSize="24" VerticalAlignment="Top" Margin="5,0,0,0"/>
+            <ListView Background="#212a35"
+                      Margin="0,35,5,0" 
+                      Width="150"
+                      BorderThickness="0"
+                      ItemsSource="{Binding offerList}"
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Margin="2" Height="65" Source="{Binding pathToImage}"/>
+                            <TextBlock Margin="5" FontSize="10" Text="{Binding name}" Foreground="White"/>
+                            <TextBlock Margin="0,0,5,0" TextAlignment="Right" FontSize="15" Text="{Binding tier}" Foreground="White"/>
+                            <ItemsControl Margin="5" ItemsSource="{Binding traits}" Foreground="White" VerticalAlignment="Bottom" FontSize="7"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+        </Grid>
+
         <Grid Grid.Column="1">
-            <ListView Background="#212a35" 
-                      Margin="380,300,380,20"
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="2" Margin="105,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="25*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="0,0,0,0"
                       Height="50"
                       Width="50"
                       ItemsSource="{Binding slot0}" 
@@ -55,16 +100,18 @@
                       dd:DragDrop.IsDragSource="True"
                       dd:DragDrop.IsDropTarget="True"
                       dd:DragDrop.DropHandler="{Binding Instance}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Image Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <ListView Background="#212a35" 
-                      Margin="250,300,380,20"
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="60,0,0,0"    
                       Height="50"
                       Width="50"
                       ItemsSource="{Binding slot1}" 
@@ -73,14 +120,542 @@
                       dd:DragDrop.IsDragSource="True"
                       dd:DragDrop.IsDropTarget="True"
                       dd:DragDrop.DropHandler="{Binding Instance}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Image Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="120,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot2}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="180,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot3}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="240,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot4}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="300,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot5}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="360,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot6}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="30,0,0,0"
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot7}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="90,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot8}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="150,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot9}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="210,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot10}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="270,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot11}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="330,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot12}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="390,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot13}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="0,0,0,0"
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot14}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="60,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot15}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="120,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot16}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="180,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot17}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="240,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot18}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="300,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot19}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="360,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot20}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="30,0,0,0"
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot21}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="90,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot22}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="150,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot23}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="210,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot24}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="270,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot25}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="330,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot26}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="390,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding slot27}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      dd:DragDrop.IsDragSource="True"
+                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.DropHandler="{Binding Instance}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

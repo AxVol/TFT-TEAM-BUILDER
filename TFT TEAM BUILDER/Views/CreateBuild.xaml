@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:TFT_TEAM_BUILDER.Views"
-      xmlns:core="clr-namespace:TFT_TEAM_BUILDER.Core"
       xmlns:dd="urn:gong-wpf-dragdrop"
       xmlns:viewModels="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
       mc:Ignorable="d" 
@@ -15,6 +14,27 @@
         <viewModels:CreateBuildViewModel/>
     </Page.DataContext>
 
+    <Page.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
     <Grid Background="#212a35">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -23,8 +43,9 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <TextBox BorderThickness="0" Margin="2" Background="#282828" Foreground="White" Height="20" VerticalAlignment="Top" Text="{Binding SortEvent, UpdateSourceTrigger=PropertyChanged}"/>
-            <ListView Background="#212a35" 
+            <TextBox BorderThickness="0" Margin="2" Background="Black" Foreground="White" Height="20" VerticalAlignment="Top" Text="{Binding SortEvent, UpdateSourceTrigger=PropertyChanged}"/>
+            <ListView BorderThickness="0"
+                      Background="#212a35" 
                       Margin="-40,25,0,0" 
                       Width="150"
                       ItemsSource="{Binding sortList}" 
@@ -44,6 +65,43 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <ListView Background="#212a35" 
+                      Margin="144,25,0,0"
+                      BorderThickness="0"
+                      Width="35"
+                      ItemsSource="{Binding traits}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Focusable" Value="false"/>
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding RelativeSource={RelativeSource AncestorType=ListView}, Path=DataContext.TraitSortCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" 
+                                Style="{StaticResource MyButton}" 
+                                Tag="{Binding name}" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Right" 
+                                Margin="0,0,8,0" Height="24" Width="24" 
+                                BorderThickness="0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="{Binding pathToImage}"/>
+                            </Button.Background>
+                        </Button>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
 
         <Grid Grid.Column="2">
@@ -56,7 +114,7 @@
                       ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                       ScrollViewer.VerticalScrollBarVisibility="Hidden"
                       dd:DragDrop.IsDragSource="True"
-                      dd:DragDrop.IsDropTarget="True"
+                      dd:DragDrop.IsDropTarget="False"
                       dd:DragDrop.DropHandler="{Binding Instance}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -68,7 +126,6 @@
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                
             </ListView>
         </Grid>
 
@@ -78,6 +135,27 @@
                 <RowDefinition Height="100"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1">
+                <ListView Background="#212a35" ItemsSource="{Binding TeamTrait}"
+                          ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          BorderThickness="0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="0,0,23,0" Source="{Binding pathToImage}"/>
+                                <TextBlock Margin="35,0,0,0" Foreground="White" FontSize="24" Text="{Binding teamCount}"/>
+                            </Grid>
+                        </DataTemplate> 
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </Grid>
 
             <Grid Grid.Row="2" Margin="105,0,0,0">
                 <Grid.RowDefinitions>

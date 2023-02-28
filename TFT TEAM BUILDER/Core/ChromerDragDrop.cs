@@ -37,7 +37,8 @@ namespace TFT_TEAM_BUILDER.Core
                 else if (targetCollection.Count > 2)
                 {
                     collection.Clear();
-                    CreateBuildViewModel.OfferList(dropChampion);
+                    CreateBuildViewModel.OfferList();
+                    CreateBuildViewModel.TraitTeamList(dropChampion, "remove");
                 }
                 else if (collection.Count == 1 && targetCollection.Count == 0) 
                 {
@@ -57,14 +58,17 @@ namespace TFT_TEAM_BUILDER.Core
                 }
                 else if (targetCollection.Count == 1)
                 {
+                    CreateBuildViewModel.TraitTeamList(targetCollection[0], "remove");
                     targetCollection.Clear();
                     targetCollection.Add(dropChampion);
-                    CreateBuildViewModel.OfferList(dropChampion);
+                    CreateBuildViewModel.OfferList();
+                    CreateBuildViewModel.TraitTeamList(dropChampion, "add");
                 }
                 else
                 {
                     targetCollection.Add(dropChampion);
-                    CreateBuildViewModel.OfferList(dropChampion);
+                    CreateBuildViewModel.OfferList();
+                    CreateBuildViewModel.TraitTeamList(dropChampion, "add");
                 }
             }
         }

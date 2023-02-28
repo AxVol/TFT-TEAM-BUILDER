@@ -16,7 +16,7 @@ namespace TFT_TEAM_BUILDER.Models
         {
             get 
             {
-                bitmapImage = ImageConventor.ConvertImage(image);
+                bitmapImage = ImageConventor.ConvertImage(image, "Content\\champions\\");
 
                 return bitmapImage;
             } 

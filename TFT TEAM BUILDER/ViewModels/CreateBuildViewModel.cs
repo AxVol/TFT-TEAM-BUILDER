@@ -2,6 +2,10 @@
 using TFT_TEAM_BUILDER.Models;
 using TFT_TEAM_BUILDER.Core;
 using GongSolutions.Wpf.DragDrop;
+using System.Linq;
+using System;
+using Newtonsoft.Json.Serialization;
+using System.IO;
 
 namespace TFT_TEAM_BUILDER.ViewModels
 {
@@ -12,9 +16,13 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
         private string text;
 
-        public ObservableCollection<Champions> champions { get; set; }
-        public ObservableCollection<Champions> sortList { get; set; }
+        public Commands TraitSortCommand { get; set; } 
+
+        public static ObservableCollection<Champions> champions { get; set; }
+        public static ObservableCollection<Champions> sortList { get; set; }
+        public static ObservableCollection<Traits> traits { get; set; }
         public static ObservableCollection<Champions> offerList { get; set; }
+        public static ObservableCollection<Traits> TeamTrait { get;set; }
 
         public ObservableCollection<Champions> slot0 { get; set; }
         public ObservableCollection<Champions> slot1 { get; set; }
@@ -66,11 +74,73 @@ namespace TFT_TEAM_BUILDER.ViewModels
             } 
         }
 
+        private void TraitSort(object data)
+        {
+            string trait = data as string;
+
+            sortList.Clear();
+
+            foreach (Champions champion in champions)
+            {
+                if (champion.traits.Any(s => s.IndexOf(trait) > -1))
+                {
+                    sortList.Add(champion);
+                }
+            }   
+        }
+
+        public static void OfferList()
+        {
+            
+        }
+
+        public static void TraitTeamList(Champions champion, string action)
+        {
+            switch (action)
+            {
+                case "add":
+                    foreach (string traitName in champion.traits)
+                    {
+                        foreach (Traits trait in traits)
+                        {
+                            if (traitName == trait.name)
+                            {
+                                trait.teamCount++;
+
+                                if (!TeamTrait.Contains(trait))
+                                    TeamTrait.Add(trait);
+                            }
+                        }
+                    }
+                    break;
+
+                case "remove":
+                    foreach (string traitName in champion.traits)
+                    {
+                        foreach (Traits trait in traits)
+                        {
+                            if (traitName == trait.name)
+                            { 
+                                trait.teamCount--;
+
+                                if (trait.teamCount == 0)
+                                    TeamTrait.Remove(trait);
+                            }
+                        }
+                    }
+                    break;
+            }         
+        }
+
         public CreateBuildViewModel()
         {
             sortList = new ObservableCollection<Champions>(JsonData.GetChampions());
             champions = new ObservableCollection<Champions>(JsonData.GetChampions());
+            traits = new ObservableCollection<Traits>(JsonData.GetTraits());
             offerList = new ObservableCollection<Champions>();
+            TeamTrait = new ObservableCollection<Traits>();
+
+            TraitSortCommand = new Commands(TraitSort);
 
             slot0 = new ObservableCollection<Champions>();
             slot1 = new ObservableCollection<Champions>();
@@ -100,11 +170,6 @@ namespace TFT_TEAM_BUILDER.ViewModels
             slot25 = new ObservableCollection<Champions>();
             slot26 = new ObservableCollection<Champions>();
             slot27 = new ObservableCollection<Champions>();
-        }
-
-        public static void OfferList(Champions champion)
-        {
-            offerList.Add(champion);
         }
     }
 }

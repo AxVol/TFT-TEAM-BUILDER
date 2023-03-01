@@ -25,10 +25,10 @@ namespace TFT_TEAM_BUILDER.Core
 
         public void Drop(IDropInfo dropInfo)
         {
-            if (dropInfo.TargetCollection is ObservableCollection<Champions> targetCollection)
+            if (dropInfo.TargetCollection is ObservableCollection<Champions> targetCollection 
+                && dropInfo.DragInfo.SourceCollection is ObservableCollection<Champions> collection)
             {
                 Champions dropChampion = dropInfo.Data as Champions;
-                var collection = dropInfo.DragInfo.SourceCollection as ObservableCollection<Champions>;
 
                 if (collection.Count > 2 && targetCollection.Count > 2)
                 { 
@@ -70,6 +70,14 @@ namespace TFT_TEAM_BUILDER.Core
                     CreateBuildViewModel.OfferList();
                     CreateBuildViewModel.TraitTeamList(dropChampion, "add");
                 }
+            }
+            else if (dropInfo.TargetCollection is ObservableCollection<Items> targetCollections
+                && dropInfo.DragInfo.SourceCollection is ObservableCollection<Items> takeCollection)
+            {
+                Items item = dropInfo.Data as Items;
+
+                targetCollections.Add(item);
+                takeCollection.Remove(item);
             }
         }
     }

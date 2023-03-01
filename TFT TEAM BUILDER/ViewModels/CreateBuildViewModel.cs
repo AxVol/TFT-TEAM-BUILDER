@@ -20,9 +20,33 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
         public static ObservableCollection<Champions> champions { get; set; }
         public static ObservableCollection<Champions> sortList { get; set; }
-        public static ObservableCollection<Traits> traits { get; set; }
         public static ObservableCollection<Champions> offerList { get; set; }
+        public static ObservableCollection<Traits> traits { get; set; }
         public static ObservableCollection<Traits> TeamTrait { get;set; }
+        public static ObservableCollection<Items> allItems { get; set; }
+        public static ObservableCollection<Items> itemsView { get; set; }
+        public static ObservableCollection<Items> teamItems { get; set; }
+
+        public string SortEvent {
+            get
+            {
+                return text;
+            }
+            set
+            {
+                text = value;
+
+                sortList.Clear();
+
+                foreach (Champions champion in champions)
+                {
+                    if (champion.name.ToLower().StartsWith(text.ToLower()))
+                    {
+                        sortList.Add(champion);
+                    }
+                }
+            } 
+        }
 
         public ObservableCollection<Champions> slot0 { get; set; }
         public ObservableCollection<Champions> slot1 { get; set; }
@@ -52,27 +76,6 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public ObservableCollection<Champions> slot25 { get; set; }
         public ObservableCollection<Champions> slot26 { get; set; }
         public ObservableCollection<Champions> slot27 { get; set; }
-
-        public string SortEvent {
-            get
-            {
-                return text;
-            }
-            set
-            {
-                text = value;
-
-                sortList.Clear();
-
-                foreach (Champions champion in champions)
-                {
-                    if (champion.name.ToLower().StartsWith(text.ToLower()))
-                    {
-                        sortList.Add(champion);
-                    }
-                }
-            } 
-        }
 
         private void TraitSort(object data)
         {
@@ -132,13 +135,32 @@ namespace TFT_TEAM_BUILDER.ViewModels
             }         
         }
 
+        public ObservableCollection<Items> ItemsView(ObservableCollection<Items> itemsList)
+        {
+            ObservableCollection<Items> items = new ObservableCollection<Items>();
+
+            foreach (Items item in itemsList)
+            {
+                if (!(item.craft.Length == 0))
+                {
+                    items.Add(item);
+                }
+            }
+
+            return items;
+        }
+
         public CreateBuildViewModel()
         {
             sortList = new ObservableCollection<Champions>(JsonData.GetChampions());
             champions = new ObservableCollection<Champions>(JsonData.GetChampions());
-            traits = new ObservableCollection<Traits>(JsonData.GetTraits());
             offerList = new ObservableCollection<Champions>();
+            traits = new ObservableCollection<Traits>(JsonData.GetTraits());
             TeamTrait = new ObservableCollection<Traits>();
+            allItems = new ObservableCollection<Items>(JsonData.GetItems());
+            teamItems = new ObservableCollection<Items>();
+            itemsView = ItemsView(allItems);
+
 
             TraitSortCommand = new Commands(TraitSort);
 

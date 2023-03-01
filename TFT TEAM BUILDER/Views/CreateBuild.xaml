@@ -33,6 +33,17 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="ListView" x:Key="Item">
+            <Setter Property="Background" Value="#212a35"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Style.Resources>
+        </Style>
     </Page.Resources>
     
     <Grid Background="#212a35">
@@ -43,7 +54,13 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <TextBox BorderThickness="0" Margin="2" Background="Black" Foreground="White" Height="20" VerticalAlignment="Top" Text="{Binding SortEvent, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox BorderThickness="0" Margin="5" Background="#415369" Foreground="White" Height="20" VerticalAlignment="Top" Text="{Binding SortEvent, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
             <ListView BorderThickness="0"
                       Background="#212a35" 
                       Margin="-40,25,0,0" 
@@ -66,7 +83,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <ListView Background="#212a35" 
-                      Margin="144,25,0,0"
+                      Margin="150,25,0,0"
                       BorderThickness="0"
                       Width="35"
                       ItemsSource="{Binding traits}" 
@@ -136,6 +153,94 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ListView Grid.Column="0"
+                          Style="{StaticResource Item}"
+                          ItemsSource="{Binding itemsView}"
+                          Margin="0,5,25,0"
+                          dd:DragDrop.IsDragSource="True"
+                          dd:DragDrop.IsDropTarget="True"
+                          dd:DragDrop.DropHandler="{Binding Instance}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Height="100" Width="100" Orientation="Horizontal">
+                                <Image Source="{Binding pathToImage}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Image.ToolTip>
+                                        <ToolTip Background="#0e2848" 
+                                             Foreground="White"
+                                             Placement="Relative" 
+                                             HorizontalOffset="15" 
+                                             VerticalOffset="10">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Width="60" Height="60" Source="{Binding FirstItem}"/>
+                                                <TextBlock Margin="0,10,0,0" FontSize="24" Text="+"/>
+                                                <Image Width="60" Height="60" Source="{Binding SecondItem}"/>
+                                                <TextBlock Margin="0,10,0,0" FontSize="24" Text="="/>
+                                                <Image Width="60" Height="60" Source="{Binding pathToImage}"/>
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Image.ToolTip>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                                       RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                       ItemWidth="60"
+                                       MinWidth="60"
+                                       ItemHeight="60"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+
+                <ListView Grid.Column="1"
+                          Style="{StaticResource Item}"
+                          ItemsSource="{Binding teamItems}"
+                          dd:DragDrop.IsDragSource="True"
+                          dd:DragDrop.IsDropTarget="True"
+                          dd:DragDrop.DropHandler="{Binding Instance}"
+                          Margin="25,5,0,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Height="100" Width="100" Orientation="Horizontal">
+                                <Image Source="{Binding pathToImage}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Image.ToolTip>
+                                        <ToolTip Background="#0e2848" 
+                                                 Foreground="White"
+                                                 Placement="Relative" 
+                                                 HorizontalOffset="15" 
+                                                 VerticalOffset="10">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Width="60" Height="60" Source="{Binding FirstItem}"/>
+                                                <TextBlock Margin="0,10,0,0" FontSize="24" Text="+"/>
+                                                <Image Width="60" Height="60" Source="{Binding SecondItem}"/>
+                                                <TextBlock Margin="0,10,0,0" FontSize="24" Text="="/>
+                                                <Image Width="60" Height="60" Source="{Binding pathToImage}"/>
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Image.ToolTip>
+                                </Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                                       RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                       ItemWidth="60"
+                                       MinWidth="60"
+                                       ItemHeight="60"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </Grid>
+
             <Grid Grid.Row="1">
                 <ListView Background="#212a35" ItemsSource="{Binding TeamTrait}"
                           ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
@@ -144,14 +249,18 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <Image Margin="0,0,23,0" Source="{Binding pathToImage}"/>
+                                <Image Margin="-5,0,23,0" Source="{Binding pathToImage}"/>
                                 <TextBlock Margin="35,0,0,0" Foreground="White" FontSize="24" Text="{Binding teamCount}"/>
                             </Grid>
-                        </DataTemplate> 
+                        </DataTemplate>
                     </ListView.ItemTemplate>
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel />
+                            <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                                       RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                       ItemWidth="60"
+                                       MinWidth="60"
+                                       ItemHeight="40"/>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                 </ListView>
@@ -164,6 +273,14 @@
                     <RowDefinition Height="25*"/>
                     <RowDefinition Height="25*"/>
                 </Grid.RowDefinitions>
+
+                <Button Style="{StaticResource MyButton}" Margin="0,0,5,10" Foreground="Wheat" Background="#415369" Content="Сохранить" FontSize="18" FontWeight="Bold" Grid.Row="3" Width="100" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Cursor="Hand">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
 
                 <Grid Grid.Row="0">
                     <ListView Background="#212a35" 

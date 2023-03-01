@@ -4,11 +4,47 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TFT_TEAM_BUILDER.Views"
+      xmlns:viewModels="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="650"
       Title="AllItems">
 
-    <Grid Background="AliceBlue">
-        
+    <Page.DataContext>
+        <viewModels:AllItemsViewModel/>
+    </Page.DataContext>
+
+    <Grid Background="#212a35">
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ItemsControl ItemsSource="{Binding Items}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="100" Margin="5">
+                            <Image Source="{Binding pathToImage}">
+                                <Image.ToolTip>
+                                    <ToolTip Background="#0e2848" 
+                                             Foreground="White"
+                                             Placement="Relative" 
+                                             HorizontalOffset="15" 
+                                             VerticalOffset="10">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="60" Height="60" Source="{Binding FirstItem}"/>
+                                            <TextBlock Margin="0,10,0,0" FontSize="24" Text="+"/>
+                                            <Image Width="60" Height="60" Source="{Binding SecondItem}"/>
+                                            <TextBlock Margin="0,10,0,0" FontSize="24" Text="="/>
+                                            <Image Width="60" Height="60" Source="{Binding pathToImage}"/>
+                                        </StackPanel>
+                                    </ToolTip>
+                                </Image.ToolTip>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Page>

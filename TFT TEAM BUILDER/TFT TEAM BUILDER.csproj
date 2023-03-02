@@ -70,6 +70,7 @@
     </ApplicationDefinition>
     <Compile Include="Core\ChromerDragDrop.cs" />
     <Compile Include="Models\ImageConventor.cs" />
+    <Compile Include="Models\Team.cs" />
     <Compile Include="ViewModels\CreateBuildViewModel.cs" />
     <Compile Include="ViewModels\MyBuildsViewModel.cs" />
     <Compile Include="Views\CreateBuild.xaml.cs">

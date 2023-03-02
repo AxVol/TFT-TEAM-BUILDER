@@ -15,7 +15,6 @@ namespace TFT_TEAM_BUILDER.Models
         public string name { get; set; }
         public string[] craft { get; set; }
         public Image image { get; set; }
-        public int CraftValidation { get; set; }
 
         public BitmapSource pathToImage
         {
@@ -44,8 +43,6 @@ namespace TFT_TEAM_BUILDER.Models
                 }
                 catch
                 {
-                    CraftValidation = 1;
-
                     return pathToImage;
                 }
                 return null;
@@ -69,8 +66,6 @@ namespace TFT_TEAM_BUILDER.Models
                 }
                 catch
                 {
-                    CraftValidation = 1;
-
                     return null;
                 }
                 return null;

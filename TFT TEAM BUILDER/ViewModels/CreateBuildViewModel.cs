@@ -3,20 +3,20 @@ using TFT_TEAM_BUILDER.Models;
 using TFT_TEAM_BUILDER.Core;
 using GongSolutions.Wpf.DragDrop;
 using System.Linq;
-using System;
-using Newtonsoft.Json.Serialization;
-using System.IO;
 
 namespace TFT_TEAM_BUILDER.ViewModels
 {
     class CreateBuildViewModel : ObservableObject
     {
         private static IDropTarget instance;
+        private string text;
+        private string fileName;
+        private Team team;
+
         public static IDropTarget Instance => instance = new ChromerDragDrop();
 
-        private string text;
-
         public Commands TraitSortCommand { get; set; } 
+        public Commands SaveTeamCommand { get; set; }
 
         public static ObservableCollection<Champions> champions { get; set; }
         public static ObservableCollection<Champions> sortList { get; set; }
@@ -27,6 +27,17 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public static ObservableCollection<Items> itemsView { get; set; }
         public static ObservableCollection<Items> teamItems { get; set; }
 
+        public string saveFileName
+        {
+            get
+            {
+                return fileName;
+            }
+            set
+            {
+                fileName = value;
+            }
+        }
         public string SortEvent {
             get
             {
@@ -161,8 +172,15 @@ namespace TFT_TEAM_BUILDER.ViewModels
             teamItems = new ObservableCollection<Items>();
             itemsView = ItemsView(allItems);
 
-
             TraitSortCommand = new Commands(TraitSort);
+            SaveTeamCommand = new Commands(obj => 
+            {
+                team = new Team(TeamTrait, teamItems, slot0, slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10, slot11, slot12, 
+                                slot13, slot14, slot15, slot16, slot17, slot18, slot19, slot20, slot21, slot22, slot23, slot24,
+                                slot25, slot26, slot27);
+
+                team.Serealize(saveFileName);
+            });
 
             slot0 = new ObservableCollection<Champions>();
             slot1 = new ObservableCollection<Champions>();

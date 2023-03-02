@@ -4,11 +4,24 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TFT_TEAM_BUILDER.Views"
+      xmlns:viewModel="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="650"
+      d:DesignHeight="720" d:DesignWidth="1070"
       Title="MyBuilds">
 
-    <Grid Background="#000">
-        
+    <Page.DataContext>
+        <viewModel:MyBuildsViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <ListView BorderThickness="0" Background="#212a35">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="123"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

@@ -266,7 +266,7 @@
                 </ListView>
             </Grid>
 
-            <Grid Grid.Row="2" Margin="105,0,0,0">
+            <Grid Grid.Row="2" Margin="85,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*"/>
                     <RowDefinition Height="25*"/>
@@ -274,7 +274,18 @@
                     <RowDefinition Height="25*"/>
                 </Grid.RowDefinitions>
 
-                <Button Style="{StaticResource MyButton}" Margin="0,0,5,10" Foreground="Wheat" Background="#415369" Content="Сохранить" FontSize="18" FontWeight="Bold" Grid.Row="3" Width="100" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Cursor="Hand">
+                <TextBlock Foreground="Wheat" FontSize="15"  Background="#212a35" Margin="0,0,5,5" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="Название сборки">
+                    
+                </TextBlock>
+                <TextBox BorderThickness="0" Margin="0,0,5,50" Background="#415369" Foreground="White" Height="20" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="3" Text="{Binding saveFileName, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <Button Command="{Binding SaveTeamCommand}" Style="{StaticResource MyButton}" Margin="0,0,5,10" Foreground="Wheat" Background="#415369" Content="Сохранить" FontSize="18" FontWeight="Bold" Grid.Row="3" Width="120" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Cursor="Hand">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>

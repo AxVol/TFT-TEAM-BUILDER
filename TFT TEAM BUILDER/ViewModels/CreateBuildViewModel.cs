@@ -167,6 +167,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
             sortList = new ObservableCollection<Champions>(JsonData.GetChampions());
             champions = new ObservableCollection<Champions>(JsonData.GetChampions());
             offerList = new ObservableCollection<Champions>();
+            ChampionTeam = new ObservableCollection<Champions>();
             traits = new ObservableCollection<Traits>(JsonData.GetTraits());
             TeamTrait = new ObservableCollection<Traits>();
             allItems = new ObservableCollection<Items>(JsonData.GetItems());

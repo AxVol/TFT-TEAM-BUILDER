@@ -37,8 +37,12 @@ namespace TFT_TEAM_BUILDER.Core
                 else if (targetCollection.Count > 2) // Удаление чемпиона из команды
                 {
                     collection.Clear();
+
                     CreateBuildViewModel.ChampionTeam.Remove(dropChampion);
-                    CreateBuildViewModel.TraitTeamList(dropChampion, "remove");
+
+                    if (!CreateBuildViewModel.ChampionTeam.Contains(dropChampion))
+                        CreateBuildViewModel.TraitTeamList(dropChampion, "remove");
+
                     //CreateBuildViewModel.OfferList();
                 }
                 else if (collection.Count == 1 && targetCollection.Count == 0) 
@@ -61,23 +65,23 @@ namespace TFT_TEAM_BUILDER.Core
                 {
                     CreateBuildViewModel.TraitTeamList(targetCollection[0], "remove");
                     CreateBuildViewModel.ChampionTeam.Remove(targetCollection[0]);
-                    CreateBuildViewModel.ChampionTeam.Add(dropChampion);
                     targetCollection.Clear();
                     targetCollection.Add(dropChampion);
 
                     if (!CreateBuildViewModel.ChampionTeam.Contains(dropChampion))
                         CreateBuildViewModel.TraitTeamList(dropChampion, "add");
 
+                    CreateBuildViewModel.ChampionTeam.Add(dropChampion);
                     //CreateBuildViewModel.OfferList();
                 }
                 else
                 {
                     targetCollection.Add(dropChampion);
-                    CreateBuildViewModel.ChampionTeam.Add(dropChampion);
 
                     if (!CreateBuildViewModel.ChampionTeam.Contains(dropChampion))
                         CreateBuildViewModel.TraitTeamList(dropChampion, "add");
 
+                    CreateBuildViewModel.ChampionTeam.Add(dropChampion);
                     //CreateBuildViewModel.OfferList();
                 }
             }

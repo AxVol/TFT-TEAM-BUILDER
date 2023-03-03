@@ -43,7 +43,7 @@ namespace TFT_TEAM_BUILDER.Core
                     if (!CreateBuildViewModel.ChampionTeam.Contains(dropChampion))
                         CreateBuildViewModel.TraitTeamList(dropChampion, "remove");
 
-                    //CreateBuildViewModel.OfferList();
+                    CreateBuildViewModel.OfferList(dropChampion);
                 }
                 else if (collection.Count == 1 && targetCollection.Count == 0) 
                 {
@@ -72,7 +72,7 @@ namespace TFT_TEAM_BUILDER.Core
                         CreateBuildViewModel.TraitTeamList(dropChampion, "add");
 
                     CreateBuildViewModel.ChampionTeam.Add(dropChampion);
-                    //CreateBuildViewModel.OfferList();
+                    CreateBuildViewModel.OfferList(dropChampion);
                 }
                 else
                 {
@@ -80,9 +80,9 @@ namespace TFT_TEAM_BUILDER.Core
 
                     if (!CreateBuildViewModel.ChampionTeam.Contains(dropChampion))
                         CreateBuildViewModel.TraitTeamList(dropChampion, "add");
-
+                       
                     CreateBuildViewModel.ChampionTeam.Add(dropChampion);
-                    //CreateBuildViewModel.OfferList();
+                    CreateBuildViewModel.OfferList(dropChampion);
                 }
             }
             else if (dropInfo.TargetCollection is ObservableCollection<Items> targetCollections

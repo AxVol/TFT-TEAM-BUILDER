@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\App.xaml
-5-1500017260
+5-1718380430
 
-252001423332
+25-754443289
 17-1475363901
-Views\AllChampions.xaml;Views\AllItems.xaml;Views\CreateBuild.xaml;Views\MainWindow.xaml;Views\MyBuilds.xaml;
+Views\AllChampions.xaml;Views\AllItems.xaml;Views\BuildView.xaml;Views\CreateBuild.xaml;Views\MainWindow.xaml;
 
-False
+True
 

@@ -26,9 +26,9 @@ D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.Genera
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.Fody.CopyLocal.cache
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.Fody.RuntimeCopyLocal.cache
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\TFT TEAM BUILDER.csproj.CopyComplete
-D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\MyBuilds.g.cs
-D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\MyBuilds.baml
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\CreateBuild.g.cs
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\CreateBuild.baml
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Debug\GongSolutions.WPF.DragDrop.dll
 D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Debug\GongSolutions.WPF.DragDrop.xml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\BuildView.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Debug\Views\BuildView.baml

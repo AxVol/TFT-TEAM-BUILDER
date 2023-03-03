@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using TFT_TEAM_BUILDER.Core;
 
 namespace TFT_TEAM_BUILDER.Models
 {
-    class JsonData
+    class JsonData : ObservableObject
     {
         public static List<Champions> GetChampions()
         {
@@ -45,6 +45,24 @@ namespace TFT_TEAM_BUILDER.Models
 
                 return items;
             }
+        }
+        public static List<Team> GetTeamInfo()
+        {
+            DirectoryInfo dir = new DirectoryInfo("Content\\myBuilds");
+            List<Team> files = new List<Team>();
+
+            foreach (FileInfo file in dir.GetFiles())
+            {
+                using (StreamReader reader = new StreamReader($"Content\\myBuilds\\{file.Name}"))
+                {
+                    string json = reader.ReadToEnd();
+
+                    var root = JsonConvert.DeserializeObject<Team>(json);
+
+                    files.Add(root);
+                }
+            }
+            return files;
         }
     }
 }

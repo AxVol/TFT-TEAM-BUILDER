@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="TFT Builder" Height="720" Width="1220">
+
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
@@ -34,6 +35,16 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="CustomListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#212a35"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#5d7694"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -43,13 +54,54 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <RadioButton Style="{StaticResource MenuToggle}" Content="Мои Сборки" Height="50" FontSize="14" Foreground="White" Command="{Binding myBuildsCommand}"/>
+                <RadioButton Style="{StaticResource MenuToggle}" Content="Мои Сборки" Height="50" FontSize="14" Foreground="White" Command="{Binding mainViewCommnd}"/>
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Создать сборку" Height="50" FontSize="14" Foreground="White" Command="{Binding createBuildCommand}"/>
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Все герои" Height="50" FontSize="14" Foreground="White" Command="{Binding allChampionsCommand}"/>
                 <RadioButton Style="{StaticResource MenuToggle}" Content="Все предметы" Height="50" FontSize="14" Foreground="White" Command="{Binding allItemCommand}"/>
             </StackPanel>
 
             <Grid Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="МОИ СБОРКИ" FontSize="54" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <ListView ItemContainerStyle="{DynamicResource CustomListViewItemStyle}" AlternationCount="2" SelectionMode="Single" SelectedItem="{Binding Build}" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemsSource="{Binding teamInfo}" BorderThickness="0" Background="#212a35">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <TextBlock FontSize="24" Foreground="White" Text="{Binding name}"/>
+                                        <ScrollViewer Margin="500,0,0,0" VerticalScrollBarVisibility="Hidden">
+                                            <ItemsControl ItemsSource="{Binding previewTeam}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <ScrollViewer Height="50" Width="50" VerticalScrollBarVisibility="Hidden">
+                                                                <Image Margin="-50,5,0,0" Stretch="Fill" Height="70" Width="100" Source="{Binding pathToImage}"/>
+                                                            </ScrollViewer>
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                            </ItemsControl>
+                                        </ScrollViewer>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </Grid>
+
                 <Frame Content="{Binding CurrentView}" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>

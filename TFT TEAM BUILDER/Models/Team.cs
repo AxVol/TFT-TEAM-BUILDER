@@ -6,6 +6,8 @@ namespace TFT_TEAM_BUILDER.Models
 {
     class Team
     {
+        public string name { get; set; }
+        public ObservableCollection<Champions> previewTeam { get; set; }
         public ObservableCollection<Traits> teamTraits { get; set; }
         public ObservableCollection<Items> teamItems { get; set; }
         public ObservableCollection<Champions> slot0 { get; set; }
@@ -37,8 +39,10 @@ namespace TFT_TEAM_BUILDER.Models
         public ObservableCollection<Champions> slot26 { get; set; }
         public ObservableCollection<Champions> slot27 { get; set; }
 
-        public Team(ObservableCollection<Traits> teamTraits, ObservableCollection<Items> teamItems, ObservableCollection<Champions> slot0, ObservableCollection<Champions> slot1, ObservableCollection<Champions> slot2, ObservableCollection<Champions> slot3, ObservableCollection<Champions> slot4, ObservableCollection<Champions> slot5, ObservableCollection<Champions> slot6, ObservableCollection<Champions> slot7, ObservableCollection<Champions> slot8, ObservableCollection<Champions> slot9, ObservableCollection<Champions> slot10, ObservableCollection<Champions> slot11, ObservableCollection<Champions> slot12, ObservableCollection<Champions> slot13, ObservableCollection<Champions> slot14, ObservableCollection<Champions> slot15, ObservableCollection<Champions> slot16, ObservableCollection<Champions> slot17, ObservableCollection<Champions> slot18, ObservableCollection<Champions> slot19, ObservableCollection<Champions> slot20, ObservableCollection<Champions> slot21, ObservableCollection<Champions> slot22, ObservableCollection<Champions> slot23, ObservableCollection<Champions> slot24, ObservableCollection<Champions> slot25, ObservableCollection<Champions> slot26, ObservableCollection<Champions> slot27)
+        public Team(string name, ObservableCollection<Champions> previewTeam, ObservableCollection<Traits> teamTraits, ObservableCollection<Items> teamItems, ObservableCollection<Champions> slot0, ObservableCollection<Champions> slot1, ObservableCollection<Champions> slot2, ObservableCollection<Champions> slot3, ObservableCollection<Champions> slot4, ObservableCollection<Champions> slot5, ObservableCollection<Champions> slot6, ObservableCollection<Champions> slot7, ObservableCollection<Champions> slot8, ObservableCollection<Champions> slot9, ObservableCollection<Champions> slot10, ObservableCollection<Champions> slot11, ObservableCollection<Champions> slot12, ObservableCollection<Champions> slot13, ObservableCollection<Champions> slot14, ObservableCollection<Champions> slot15, ObservableCollection<Champions> slot16, ObservableCollection<Champions> slot17, ObservableCollection<Champions> slot18, ObservableCollection<Champions> slot19, ObservableCollection<Champions> slot20, ObservableCollection<Champions> slot21, ObservableCollection<Champions> slot22, ObservableCollection<Champions> slot23, ObservableCollection<Champions> slot24, ObservableCollection<Champions> slot25, ObservableCollection<Champions> slot26, ObservableCollection<Champions> slot27)
         {
+            this.name = name;
+            this.previewTeam = previewTeam;
             this.teamTraits = teamTraits;
             this.teamItems = teamItems;
             this.slot0 = slot0;
@@ -71,9 +75,9 @@ namespace TFT_TEAM_BUILDER.Models
             this.slot27 = slot27;
         }
 
-        public void Serealize(string name)
+        public void Serealize()
         {
-            File.WriteAllText($"Content/myBuilds/{name}.json", JsonConvert.SerializeObject(this));   
+            File.WriteAllText($"Content/myBuilds/{this.name}.json", JsonConvert.SerializeObject(this));   
         }
     }
 }

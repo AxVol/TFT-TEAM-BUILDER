@@ -12,11 +12,11 @@
         <DataTemplate DataType="{x:Type viewModel:AllItemsViewModel}">
             <view:AllItems/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:MyBuildsViewModel}">
-            <view:MyBuilds/>
-        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:CreateBuildViewModel}">
             <view:CreateBuild/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:BuildViewModel}">
+            <view:BuildView/>
         </DataTemplate>
     </Application.Resources>
 </Application>

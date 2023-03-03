@@ -71,19 +71,23 @@
     <Compile Include="Core\ChromerDragDrop.cs" />
     <Compile Include="Models\ImageConventor.cs" />
     <Compile Include="Models\Team.cs" />
+    <Compile Include="ViewModels\BuildViewModel.cs" />
     <Compile Include="ViewModels\CreateBuildViewModel.cs" />
-    <Compile Include="ViewModels\MyBuildsViewModel.cs" />
+    <Compile Include="Views\BuildView.xaml.cs">
+      <DependentUpon>BuildView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CreateBuild.xaml.cs">
       <DependentUpon>CreateBuild.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MyBuilds.xaml.cs">
-      <DependentUpon>MyBuilds.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AllChampions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AllItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BuildView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,10 +123,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\MyBuilds.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

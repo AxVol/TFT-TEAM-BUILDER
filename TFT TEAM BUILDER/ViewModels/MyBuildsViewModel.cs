@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TFT_TEAM_BUILDER.ViewModels
 {
-    internal class MyBuildsViewModel
+    class MyBuildsViewModel
     {
+
     }
 }

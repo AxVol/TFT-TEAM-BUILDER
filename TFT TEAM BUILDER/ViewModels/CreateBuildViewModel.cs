@@ -21,6 +21,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public static ObservableCollection<Champions> champions { get; set; }
         public static ObservableCollection<Champions> sortList { get; set; }
         public static ObservableCollection<Champions> offerList { get; set; }
+        public static ObservableCollection<Champions> ChampionTeam { get; set; }
         public static ObservableCollection<Traits> traits { get; set; }
         public static ObservableCollection<Traits> TeamTrait { get;set; }
         public static ObservableCollection<Items> allItems { get; set; }
@@ -103,7 +104,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
             }   
         }
 
-        public static void OfferList()
+        public static void OfferList(Champions champion)
         {
             
         }

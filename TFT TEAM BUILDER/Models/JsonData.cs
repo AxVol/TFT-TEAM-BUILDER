@@ -64,5 +64,10 @@ namespace TFT_TEAM_BUILDER.Models
             }
             return files;
         }
+
+        public static void DeleteBuild(string fileName)
+        {
+            File.Delete($"Content\\myBuilds\\{fileName}.json");
+        }
     }
 }

@@ -10,6 +10,6 @@ namespace TFT_TEAM_BUILDER.ViewModels
 {
     class BuildViewModel
     {
-        public static Team team;
+        public static Team team { get; set; }
     }
 }

@@ -12,6 +12,8 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public Commands allChampionsCommand { get; set; }
         public Commands createBuildCommand { get; set; }
         public Commands mainViewCommnd { get; set; }
+        public Commands loadBuildCommand { get; set; }
+        public Commands deleteBuildCommand { get; set; }
 
         public MainViewModel mainViewModel { get; set; }
         public AllChampionsViewModel allChampionVM { get; set; }
@@ -19,10 +21,12 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public CreateBuildViewModel createBuildVM { get; set; }
         public BuildViewModel BuildVM { get; set; }
 
-        public static ObservableCollection<Team> teamInfo { get; set; }
+        public ObservableCollection<Team> teamInfo { get; set; }
+
+        public Team team { get; set; }
 
         private object currentView;
-        private Team build;
+        private object checkBuild;
 
         public object CurrentView
         {
@@ -38,16 +42,29 @@ namespace TFT_TEAM_BUILDER.ViewModels
         {
             get 
             {  
-                return build;
+                return checkBuild;
             }
             set 
             {
-                build = value as Team;
+                team = value as Team;
 
-                BuildViewModel.team = build;
-
-                CurrentView = BuildVM; 
+                checkBuild = value;
             }
+        }
+
+        private void LoadBuild(object buildTeam)
+        {
+            BuildViewModel.team = buildTeam as Team;
+            CurrentView = BuildVM;
+        }
+        private void DeleteBuild(object buildTeam)
+        {
+            Team build = buildTeam as Team;
+
+            JsonData.DeleteBuild(build.name);
+
+            teamInfo.Clear();
+            teamInfo = new ObservableCollection<Team>(JsonData.GetTeamInfo());
         }
 
         public MainViewModel()
@@ -59,8 +76,12 @@ namespace TFT_TEAM_BUILDER.ViewModels
             BuildVM = new BuildViewModel();
             teamInfo = new ObservableCollection<Team>(JsonData.GetTeamInfo());
 
+            loadBuildCommand = new Commands(LoadBuild);
+            deleteBuildCommand = new Commands(DeleteBuild);
+
             mainViewCommnd = new Commands(obj =>
             {
+                teamInfo = new ObservableCollection<Team>(JsonData.GetTeamInfo());
                 CurrentView = mainViewModel;
             });
             

@@ -25,6 +25,11 @@ namespace TFT_TEAM_BUILDER.Core
 
         public void Drop(IDropInfo dropInfo)
         {
+            if (CreateBuildViewModel.ChampionTeam.Count == 10)
+            {
+                return;
+            }
+
             if (dropInfo.TargetCollection is ObservableCollection<Champions> targetCollection 
                 && dropInfo.DragInfo.SourceCollection is ObservableCollection<Champions> collection)
             {
@@ -88,10 +93,17 @@ namespace TFT_TEAM_BUILDER.Core
             else if (dropInfo.TargetCollection is ObservableCollection<Items> targetCollections
                 && dropInfo.DragInfo.SourceCollection is ObservableCollection<Items> takeCollection)
             {
-                Items item = dropInfo.Data as Items;
+                if (targetCollections == takeCollection)
+                {
+                    return;
+                }
+                else
+                {
+                    Items item = dropInfo.Data as Items;
 
-                targetCollections.Add(item);
-                takeCollection.Remove(item);
+                    targetCollections.Add(item);
+                    takeCollection.Remove(item);
+                }
             }
         }
     }

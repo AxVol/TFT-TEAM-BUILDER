@@ -4,11 +4,588 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TFT_TEAM_BUILDER.Views"
+       xmlns:viewModel="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1070"
       Title="BuildView">
 
+    <Page.DataContext>
+        <viewModel:BuildViewModel/>
+    </Page.DataContext>
+    
+    <Page.Resources>
+        <Style TargetType="ListView" x:Key="Item">
+            <Setter Property="Background" Value="#212a35"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Page.Resources>
+    
     <Grid Background="#212a35">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="150"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <ListView ItemsSource="{Binding team.teamItems}" Style="{StaticResource Item}" Margin="20" Background="#212a35">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="100" Width="100" Orientation="Horizontal">
+                            <Image Source="{Binding pathToImage}" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Image.ToolTip>
+                                    <ToolTip Background="#0e2848" 
+                                             Foreground="White"
+                                             Placement="Relative" 
+                                             HorizontalOffset="15" 
+                                             VerticalOffset="10">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="60" Height="60" Source="{Binding FirstItem}"/>
+                                            <TextBlock Margin="0,10,0,0" FontSize="24" Text="+"/>
+                                            <Image Width="60" Height="60" Source="{Binding SecondItem}"/>
+                                            <TextBlock Margin="0,10,0,0" FontSize="24" Text="="/>
+                                            <Image Width="60" Height="60" Source="{Binding pathToImage}"/>
+                                        </StackPanel>
+                                    </ToolTip>
+                                </Image.ToolTip>
+                            </Image>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                                       RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                       ItemWidth="60"
+                                       MinWidth="60"
+                                       ItemHeight="60"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListView Background="#212a35" ItemsSource="{Binding team.teamTraits}"
+                          ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                          BorderThickness="0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Margin="-5,0,23,0" Source="{Binding pathToImage}"/>
+                            <TextBlock Margin="35,0,0,0" Foreground="White" FontSize="24" Text="{Binding teamCount}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Width="{Binding (FrameworkElement.ActualWidth), 
+                                       RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"
+                                       ItemWidth="60"
+                                       MinWidth="60"
+                                       ItemHeight="40"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="2" Margin="300,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="0,0,0,0"
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot0}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="60,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot1}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="120,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot2}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="180,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot3}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="240,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot4}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="300,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot5}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="360,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot6}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="30,0,0,0"
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot7}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="90,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot8}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="150,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot9}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="210,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot10}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="270,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot11}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="330,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot12}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="390,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot13}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="2">
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="0,0,0,0"
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot14}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="60,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot15}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="120,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot16}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="180,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot17}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="240,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot18}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="300,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot19}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="360,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot20}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="3">
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="30,0,0,0"
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot21}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="90,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot22}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="150,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot23}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="210,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot24}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="270,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot25}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="330,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot26}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView Background="#212a35" 
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="390,0,0,0"    
+                      Height="50"
+                      Width="50"
+                      ItemsSource="{Binding team.slot27}" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

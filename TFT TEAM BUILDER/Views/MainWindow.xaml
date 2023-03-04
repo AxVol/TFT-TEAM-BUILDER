@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TFT_TEAM_BUILDER" xmlns:viewModels="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
+        xmlns:local="clr-namespace:TFT_TEAM_BUILDER" 
+        xmlns:viewModels="clr-namespace:TFT_TEAM_BUILDER.ViewModels"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
         Title="TFT Builder" Height="720" Width="1220">
 
     <Window.DataContext>
@@ -45,6 +45,19 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="Background" Value="#212a35"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -69,6 +82,8 @@
 
                     <Grid Grid.Row="0">
                         <TextBlock Text="МОИ СБОРКИ" FontSize="54" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Button Command="{Binding loadBuildCommand}" CommandParameter="{Binding team}" Margin="5,5,120,5" Style="{StaticResource ButtonStyle}" Content="Загрузить"/>
+                        <Button Command="{Binding deleteBuildCommand}" CommandParameter="{Binding team}" Margin="5" Style="{StaticResource ButtonStyle}" Content="Удалить"/>
                     </Grid>
 
                     <Grid Grid.Row="1">
@@ -82,7 +97,7 @@
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate>
                                                         <Grid>
-                                                            <ScrollViewer Height="50" Width="50" VerticalScrollBarVisibility="Hidden">
+                                                            <ScrollViewer Height="50" Width="50" VerticalScrollBarVisibility="Disabled">
                                                                 <Image Margin="-50,5,0,0" Stretch="Fill" Height="70" Width="100" Source="{Binding pathToImage}"/>
                                                             </ScrollViewer>
                                                         </Grid>

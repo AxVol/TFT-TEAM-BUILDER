@@ -3,6 +3,7 @@ using TFT_TEAM_BUILDER.Models;
 using TFT_TEAM_BUILDER.Core;
 using GongSolutions.Wpf.DragDrop;
 using System.Linq;
+using System.Windows;
 
 namespace TFT_TEAM_BUILDER.ViewModels
 {
@@ -10,6 +11,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
     {
         private static IDropTarget instance;
         private string text;
+        private string saveText = "Название сборки";
         private string fileName;
         private Team team;
 
@@ -58,6 +60,11 @@ namespace TFT_TEAM_BUILDER.ViewModels
                     }
                 }
             } 
+        }
+        public string Text
+        {
+            get { return saveText; }
+            set { saveText = "Сохранено"; }
         }
 
         public ObservableCollection<Champions> slot0 { get; set; }
@@ -192,6 +199,8 @@ namespace TFT_TEAM_BUILDER.ViewModels
             TraitSortCommand = new Commands(TraitSort);
             SaveTeamCommand = new Commands(obj => 
             {
+                Text = "Сохранено";
+
                 team = new Team(saveFileName, ChampionTeam, TeamTrait, teamItems, slot0, slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10, slot11, slot12, 
                                 slot13, slot14, slot15, slot16, slot17, slot18, slot19, slot20, slot21, slot22, slot23, slot24,
                                 slot25, slot26, slot27);

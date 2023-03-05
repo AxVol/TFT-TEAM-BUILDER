@@ -64,7 +64,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public string Text
         {
             get { return saveText; }
-            set { saveText = "Сохранено"; }
+            set { saveText = value; }
         }
 
         public ObservableCollection<Champions> slot0 { get; set; }
@@ -199,13 +199,27 @@ namespace TFT_TEAM_BUILDER.ViewModels
             TraitSortCommand = new Commands(TraitSort);
             SaveTeamCommand = new Commands(obj => 
             {
-                Text = "Сохранено";
+                if (saveFileName != null)
+                {
+                    try
+                    {
+                        Text = "Сохранено";
 
-                team = new Team(saveFileName, ChampionTeam, TeamTrait, teamItems, slot0, slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10, slot11, slot12, 
-                                slot13, slot14, slot15, slot16, slot17, slot18, slot19, slot20, slot21, slot22, slot23, slot24,
-                                slot25, slot26, slot27);
+                        team = new Team(saveFileName, ChampionTeam, TeamTrait, teamItems, slot0, slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10, slot11, slot12,
+                                        slot13, slot14, slot15, slot16, slot17, slot18, slot19, slot20, slot21, slot22, slot23, slot24,
+                                        slot25, slot26, slot27);
 
-                team.Serealize();
+                        team.Serealize();
+                    }
+                    catch
+                    {
+                        Text = "Некоректное название";
+                    }
+                }
+                else
+                {
+                    Text = "Введите название";
+                }
             });
 
             slot0 = new ObservableCollection<Champions>();

@@ -54,17 +54,23 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
         private void LoadBuild(object buildTeam)
         {
-            BuildViewModel.team = buildTeam as Team;
-            CurrentView = BuildVM;
+            if (Build != null)
+            {
+                BuildViewModel.team = buildTeam as Team;
+                CurrentView = BuildVM;
+            }
         }
         private void DeleteBuild(object buildTeam)
         {
-            Team build = buildTeam as Team;
+            if (Build != null)
+            {
+                Team build = buildTeam as Team;
 
-            JsonData.DeleteBuild(build.name);
+                JsonData.DeleteBuild(build.name);
 
-            teamInfo.Clear();
-            teamInfo = new ObservableCollection<Team>(JsonData.GetTeamInfo());
+                teamInfo.Clear();
+                teamInfo = new ObservableCollection<Team>(JsonData.GetTeamInfo());
+            }
         }
 
         public MainViewModel()

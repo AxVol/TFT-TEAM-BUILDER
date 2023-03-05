@@ -1,0 +1,34 @@
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Release\TFT TEAM BUILDER.exe.config
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Release\TFT TEAM BUILDER.exe
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Release\TFT TEAM BUILDER.pdb
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Release\GongSolutions.WPF.DragDrop.dll
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Release\Newtonsoft.Json.dll
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Release\GongSolutions.WPF.DragDrop.xml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\bin\Release\Newtonsoft.Json.xml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.csproj.AssemblyReference.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.csproj.SuggestedBindingRedirects.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\AllChampions.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\AllItems.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\BuildView.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\CreateBuild.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\MainWindow.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\App.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER_MarkupCompile.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER_MarkupCompile.lref
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\App.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\AllChampions.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\AllItems.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\BuildView.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\CreateBuild.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\Views\MainWindow.baml
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.g.resources
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT_TEAM_BUILDER.Properties.Resources.resources
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.csproj.GenerateResource.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.csproj.CoreCompileInputs.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.csproj.Fody.CopyLocal.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.csproj.Fody.RuntimeCopyLocal.cache
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.csproj.CopyComplete
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.exe
+D:\code\code\TFT TEAM BUILDER\TFT TEAM BUILDER\obj\Release\TFT TEAM BUILDER.pdb

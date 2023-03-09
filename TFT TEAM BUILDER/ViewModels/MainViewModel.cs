@@ -8,6 +8,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
 {
     class MainViewModel : ObservableObject
     {
+        // Команды для навигации по страницам
         public Commands allItemCommand { get; set; }
         public Commands allChampionsCommand { get; set; }
         public Commands createBuildCommand { get; set; }
@@ -15,18 +16,18 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public Commands loadBuildCommand { get; set; }
         public Commands deleteBuildCommand { get; set; }
 
-        public MainViewModel mainViewModel { get; set; }
+        public MainViewModel mainVM { get; set; }
         public AllChampionsViewModel allChampionVM { get; set; }
         public AllItemsViewModel allItemsVM { get; set; }
         public CreateBuildViewModel createBuildVM { get; set; }
         public BuildViewModel BuildVM { get; set; }
 
         public ObservableCollection<Team> teamInfo { get; set; }
-
+        // поле для связи информации о команде между вью моделями
         public Team team { get; set; }
 
         private object currentView;
-        private object checkBuild;
+        private object selectedBuild;
 
         public object CurrentView
         {
@@ -41,14 +42,14 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public object Build
         {
             get 
-            {  
-                return checkBuild;
+            {
+                return selectedBuild;
             }
             set 
             {
                 team = value as Team;
 
-                checkBuild = value;
+                selectedBuild = value;
             }
         }
 
@@ -75,7 +76,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
         public MainViewModel()
         {
-            mainViewModel = this.mainViewModel;
+            mainVM = this.mainVM;
             allChampionVM = new AllChampionsViewModel();
             allItemsVM = new AllItemsViewModel();
             createBuildVM = new CreateBuildViewModel();
@@ -88,7 +89,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
             mainViewCommnd = new Commands(obj =>
             {
                 teamInfo = new ObservableCollection<Team>(JsonData.GetTeamInfo());
-                CurrentView = mainViewModel;
+                CurrentView = mainVM;
             });
             
             allChampionsCommand = new Commands(obj =>

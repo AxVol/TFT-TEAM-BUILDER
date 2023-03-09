@@ -53,7 +53,7 @@ namespace TFT_TEAM_BUILDER.Models
 
             foreach (FileInfo file in dir.GetFiles())
             {
-                using (StreamReader reader = new StreamReader($"Content\\myBuilds\\{file.Name}"))
+                using (StreamReader reader = new StreamReader($"{dir}\\{file.Name}"))
                 {
                     string json = reader.ReadToEnd();
 

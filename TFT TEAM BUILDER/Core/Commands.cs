@@ -3,6 +3,7 @@ using System.Windows.Input;
 
 namespace TFT_TEAM_BUILDER.Core
 {
+    // Класс для взаимодействием с командами по патерну MVVM
     public class Commands : ICommand
     {
         private Action<object> execute;

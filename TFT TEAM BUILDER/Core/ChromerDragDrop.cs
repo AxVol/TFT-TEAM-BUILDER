@@ -6,8 +6,13 @@ using TFT_TEAM_BUILDER.ViewModels;
 
 namespace TFT_TEAM_BUILDER.Core
 {
+    // Логика Drag'n'Drop
+    // Суть которой что чемпионы должны перемещаться только в свои слоты, как и предметы. *В будущем у персонажей должен будет
+    // появиться свой инвентарь*
     public class ChromerDragDrop : IDropTarget
     {
+        private readonly int maxSizeSlot = 1, minimumSizeDeleteCollection = 2, baseSizeSlot = 0;
+
         public void DragEnter(IDropInfo dropInfo)
         {
             
@@ -25,37 +30,39 @@ namespace TFT_TEAM_BUILDER.Core
 
         public void Drop(IDropInfo dropInfo)
         {
-            if (CreateBuildViewModel.ChampionTeam.Count == 10)
+            if (CreateBuildViewModel.ChampionTeam.Count == 10) // Превышение лимита команды
             {
                 return;
             }
-
+            // Логика если перемещают чемпионов
             if (dropInfo.TargetCollection is ObservableCollection<Champions> targetCollection 
                 && dropInfo.DragInfo.SourceCollection is ObservableCollection<Champions> collection)
             {
                 Champions dropChampion = dropInfo.Data as Champions;
 
-                if (collection.Count > 2 && targetCollection.Count > 2) // Помещение главной колекции в саму себя
+                if (collection == targetCollection) // Помещение главной колекции в саму себя
                 { 
                     return;
                 }
-                else if (targetCollection.Count > 2) // Удаление чемпиона из команды
+                else if (targetCollection.Count > minimumSizeDeleteCollection) // Удаление чемпиона из команды
                 {
                     collection.Clear();
 
                     CreateBuildViewModel.ChampionTeam.Remove(dropChampion);
 
+                    // так как перки персонажей при повторном добавлении не должны повторяться, то сделана провекра, проверяющая наличие
+                    // персонажа в команде, после чего удаляет, либо добавляет перк, в ином случае просто забивает
                     if (!CreateBuildViewModel.ChampionTeam.Contains(dropChampion))
                         CreateBuildViewModel.TraitTeamList(dropChampion, "remove");
 
                     CreateBuildViewModel.OfferList(dropChampion);
                 }
-                else if (collection.Count == 1 && targetCollection.Count == 0) 
+                else if (collection.Count == maxSizeSlot && targetCollection.Count == baseSizeSlot)  // перемещение чемпиона внутри поля
                 {
                     collection.Clear();
                     targetCollection.Add(dropChampion);
                 }
-                else if (targetCollection.Count == 1 && collection.Count == 1) // замена местами внутри команды
+                else if (targetCollection.Count == maxSizeSlot && collection.Count == maxSizeSlot) // замена местами внутри поля
                 {
                     Champions tempChampion = targetCollection[0];
 
@@ -66,10 +73,11 @@ namespace TFT_TEAM_BUILDER.Core
                     collection.Add(tempChampion);
 
                 }
-                else if (targetCollection.Count == 1) // замена чемпиона, чемпионом из общего списка
+                else if (targetCollection.Count == maxSizeSlot) // замена чемпиона, чемпионом из общего списка
                 {
                     CreateBuildViewModel.TraitTeamList(targetCollection[0], "remove");
                     CreateBuildViewModel.ChampionTeam.Remove(targetCollection[0]);
+
                     targetCollection.Clear();
                     targetCollection.Add(dropChampion);
 
@@ -79,7 +87,7 @@ namespace TFT_TEAM_BUILDER.Core
                     CreateBuildViewModel.ChampionTeam.Add(dropChampion);
                     CreateBuildViewModel.OfferList(dropChampion);
                 }
-                else
+                else // это должно срабатывать когда чемпиона перемещают в пустой слот поля
                 {
                     targetCollection.Add(dropChampion);
 
@@ -90,14 +98,15 @@ namespace TFT_TEAM_BUILDER.Core
                     CreateBuildViewModel.OfferList(dropChampion);
                 }
             }
+            // Логика для перемещение предметов
             else if (dropInfo.TargetCollection is ObservableCollection<Items> targetCollections
                 && dropInfo.DragInfo.SourceCollection is ObservableCollection<Items> takeCollection)
             {
-                if (targetCollections == takeCollection)
+                if (targetCollections == takeCollection) // Предмет помещают в тот же список из которого берут
                 {
                     return;
                 }
-                else
+                else // пермещение предмета в список нужных для команды предметов
                 {
                     Items item = dropInfo.Data as Items;
 

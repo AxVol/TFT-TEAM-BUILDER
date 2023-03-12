@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Reflection.Emit;
 using TFT_TEAM_BUILDER.Core;
 using TFT_TEAM_BUILDER.Models;
@@ -15,6 +16,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
         public Commands mainViewCommnd { get; set; }
         public Commands loadBuildCommand { get; set; }
         public Commands deleteBuildCommand { get; set; }
+        public Commands editBuildCommand { get; set; }
 
         public MainViewModel mainVM { get; set; }
         public AllChampionsViewModel allChampionVM { get; set; }
@@ -73,6 +75,25 @@ namespace TFT_TEAM_BUILDER.ViewModels
                 teamInfo = new ObservableCollection<Team>(JsonData.GetTeamInfo());
             }
         }
+        private void EditBuild(object buildTeam)
+        {
+            if (Build != null)
+            {
+                Team teamStat = buildTeam as Team;
+
+                CreateBuildViewModel.team = teamStat;
+
+                foreach (Champions champion in teamStat.previewTeam)
+                {
+                    if(!CreateBuildViewModel.ChampionTeam.Any(cham => cham.name == champion.name))
+                        CreateBuildViewModel.TraitTeamList(champion, "add");
+
+                    CreateBuildViewModel.ChampionTeam.Add(champion);
+                }
+
+                CurrentView = createBuildVM;
+            }
+        }
 
         public MainViewModel()
         {
@@ -85,6 +106,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
             loadBuildCommand = new Commands(LoadBuild);
             deleteBuildCommand = new Commands(DeleteBuild);
+            editBuildCommand = new Commands(EditBuild);
 
             mainViewCommnd = new Commands(obj =>
             {
@@ -104,6 +126,11 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
             createBuildCommand = new Commands(obj =>
             {
+                CreateBuildViewModel.team = new Team();
+                CreateBuildViewModel.TeamTrait = new ObservableCollection<Traits>();
+                CreateBuildViewModel.ChampionTeam = new ObservableCollection<Champions>();
+                CreateBuildViewModel.traits = new ObservableCollection<Traits>(JsonData.GetTraits());
+
                 CurrentView = createBuildVM;
             });
         }

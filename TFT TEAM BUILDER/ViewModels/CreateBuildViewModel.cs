@@ -18,14 +18,14 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
         public static ObservableCollection<Champions> champions { get; set; } // Список всех чемпионов
         public static ObservableCollection<Champions> offerList { get; set; } // Список с отсортированными чемпионами отображаемые на вью которые могут подойти в команду
-        public static ObservableCollection<Champions> ChampionTeam { get; set; }
-        public static ObservableCollection<Traits> traits { get; set; } // Перки
-        public static ObservableCollection<Traits> TeamTrait { get; set; }
+        public static ObservableCollection<Champions> ChampionTeam { get; set; } = new ObservableCollection<Champions>();
+        public static ObservableCollection<Traits> traits { get; set; } = new ObservableCollection<Traits>(JsonData.GetTraits()); // Перки
+        public static ObservableCollection<Traits> TeamTrait { get; set; } = new ObservableCollection<Traits>();
         public ObservableCollection<Champions> sortList { get; set; } // Список который отображаеться на вью и производит сортировка в поиске
         public ObservableCollection<Items> allItems { get; set; } // Предметы
         public ObservableCollection<Items> itemsView { get; set; }
 
-        public Team team { get; set; }
+        public static Team team { get; set; } = new Team();
 
         // Переменные для свойств
         private string searchText;
@@ -166,12 +166,8 @@ namespace TFT_TEAM_BUILDER.ViewModels
         {
             sortList = new ObservableCollection<Champions>(JsonData.GetChampions());
             champions = new ObservableCollection<Champions>(JsonData.GetChampions());
-            traits = new ObservableCollection<Traits>(JsonData.GetTraits());
             allItems = new ObservableCollection<Items>(JsonData.GetItems());
             offerList = new ObservableCollection<Champions>();
-            ChampionTeam = new ObservableCollection<Champions>();
-            TeamTrait = new ObservableCollection<Traits>();
-            team = new Team();
             itemsView = ItemsView(allItems);
 
             TraitSortCommand = new Commands(TraitSort);
@@ -186,7 +182,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
                         team.teamTraits = TeamTrait;
                         team.previewTeam = ChampionTeam;
 
-                        team.Serealize();
+                        team.Serialize();
                     }
                     catch
                     {

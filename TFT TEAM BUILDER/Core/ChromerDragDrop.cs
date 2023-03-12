@@ -1,5 +1,6 @@
 ﻿using GongSolutions.Wpf.DragDrop;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using TFT_TEAM_BUILDER.Models;
 using TFT_TEAM_BUILDER.ViewModels;
@@ -52,7 +53,7 @@ namespace TFT_TEAM_BUILDER.Core
 
                     // так как перки персонажей при повторном добавлении не должны повторяться, то сделана провекра, проверяющая наличие
                     // персонажа в команде, после чего удаляет, либо добавляет перк, в ином случае просто забивает
-                    if (!CreateBuildViewModel.ChampionTeam.Contains(dropChampion))
+                    if (!CreateBuildViewModel.ChampionTeam.Any(cham => cham.name == dropChampion.name))
                         CreateBuildViewModel.TraitTeamList(dropChampion, "remove");
 
                     CreateBuildViewModel.OfferList(dropChampion);
@@ -81,7 +82,7 @@ namespace TFT_TEAM_BUILDER.Core
                     targetCollection.Clear();
                     targetCollection.Add(dropChampion);
 
-                    if (!CreateBuildViewModel.ChampionTeam.Contains(dropChampion))
+                    if (!CreateBuildViewModel.ChampionTeam.Any(cham => cham.name == dropChampion.name))
                         CreateBuildViewModel.TraitTeamList(dropChampion, "add");
 
                     CreateBuildViewModel.ChampionTeam.Add(dropChampion);
@@ -91,7 +92,7 @@ namespace TFT_TEAM_BUILDER.Core
                 {
                     targetCollection.Add(dropChampion);
 
-                    if (!CreateBuildViewModel.ChampionTeam.Contains(dropChampion))
+                    if (!CreateBuildViewModel.ChampionTeam.Any(cham => cham.name == dropChampion.name))
                         CreateBuildViewModel.TraitTeamList(dropChampion, "add");
                        
                     CreateBuildViewModel.ChampionTeam.Add(dropChampion);
@@ -110,7 +111,9 @@ namespace TFT_TEAM_BUILDER.Core
                 {
                     Items item = dropInfo.Data as Items;
 
-                    targetCollections.Add(item);
+                    if (!targetCollections.Any(cham => cham.name == item.name))
+                        targetCollections.Add(item);
+
                     takeCollection.Remove(item);
                 }
             }

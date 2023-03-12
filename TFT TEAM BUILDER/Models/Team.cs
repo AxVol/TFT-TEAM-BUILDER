@@ -73,7 +73,7 @@ namespace TFT_TEAM_BUILDER.Models
             slot27 = new ObservableCollection<Champions>();
     }
 
-        public void Serealize()
+        public void Serialize()
         {
             File.WriteAllText($"Content/myBuilds/{this.name}.json", JsonConvert.SerializeObject(this));   
         }

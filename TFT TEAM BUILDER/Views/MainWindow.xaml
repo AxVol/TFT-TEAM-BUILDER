@@ -82,7 +82,8 @@
 
                     <Grid Grid.Row="0">
                         <TextBlock Text="МОИ СБОРКИ" FontSize="54" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <Button Command="{Binding loadBuildCommand}" CommandParameter="{Binding team}" Margin="5,5,120,5" Style="{StaticResource ButtonStyle}" Content="Загрузить"/>
+                        <Button Command="{Binding editBuildCommand}" CommandParameter="{Binding team}" Margin="5,5,120,5" Style="{StaticResource ButtonStyle}" Content="Редактировать"/>
+                        <Button Command="{Binding loadBuildCommand}" CommandParameter="{Binding team}" Margin="5,5,230,5" Style="{StaticResource ButtonStyle}" Content="Открыть"/>
                         <Button Command="{Binding deleteBuildCommand}" CommandParameter="{Binding team}" Margin="5" Style="{StaticResource ButtonStyle}" Content="Удалить"/>
                     </Grid>
 

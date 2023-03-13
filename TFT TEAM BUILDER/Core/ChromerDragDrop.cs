@@ -1,4 +1,5 @@
 ﻿using GongSolutions.Wpf.DragDrop;
+using System.CodeDom.Compiler;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -49,7 +50,15 @@ namespace TFT_TEAM_BUILDER.Core
                 {
                     collection.Clear();
 
-                    CreateBuildViewModel.ChampionTeam.Remove(dropChampion);
+                    ObservableCollection<Champions> tempCollection = new ObservableCollection<Champions>(CreateBuildViewModel.ChampionTeam);
+
+                    foreach (Champions champion in tempCollection)
+                    {
+                        if (champion.name == dropChampion.name)
+                        {
+                            CreateBuildViewModel.ChampionTeam.Remove(champion);
+                        }
+                    }
 
                     // так как перки персонажей при повторном добавлении не должны повторяться, то сделана провекра, проверяющая наличие
                     // персонажа в команде, после чего удаляет, либо добавляет перк, в ином случае просто забивает
@@ -116,6 +125,13 @@ namespace TFT_TEAM_BUILDER.Core
 
                     takeCollection.Remove(item);
                 }
+            }
+            else if (dropInfo.TargetCollection is ObservableCollection<Champions> target //Логика драг'н'дропа для инвентаря
+                && dropInfo.DragInfo.SourceCollection is ObservableCollection<Items>)
+            {
+                Items item = dropInfo.Data as Items;
+
+                target[0].inventory.Add(item);
             }
         }
     }

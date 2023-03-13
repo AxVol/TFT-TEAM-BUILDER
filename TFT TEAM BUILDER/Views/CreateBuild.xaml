@@ -309,7 +309,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -329,7 +350,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -349,7 +391,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -369,7 +432,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -389,7 +473,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -409,7 +514,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -429,7 +555,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -451,7 +598,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -471,7 +639,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -491,7 +680,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -511,7 +721,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -531,7 +762,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -551,7 +803,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -571,7 +844,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -593,7 +887,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -613,7 +928,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -633,7 +969,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -653,7 +1010,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -673,7 +1051,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -693,7 +1092,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -713,7 +1133,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -735,7 +1176,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -755,7 +1217,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -775,7 +1258,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -795,7 +1299,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -815,7 +1340,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -835,7 +1381,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -855,7 +1422,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill"/>
+                                    <Image Margin="-59,-2,-5,-2" Width="100" Height="60" Source="{Binding pathToImage}" Stretch="Fill">
+                                        <Image.ToolTip>
+                                            <ToolTip Background="#0e2848">
+                                                <ListView Background="#0e2848"
+                                                          BorderThickness="0"
+                                                          ItemsSource="{Binding inventory}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid>
+                                                                <Image Margin="-7" Width="47" Height="47" Source="{Binding pathToImage}"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                    <ListView.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <WrapPanel/>
+                                                        </ItemsPanelTemplate>
+                                                    </ListView.ItemsPanel>
+                                                </ListView>
+                                            </ToolTip>
+                                        </Image.ToolTip>
+                                    </Image>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>

@@ -17,6 +17,14 @@ namespace TFT_TEAM_BUILDER.Models
             return bitmapSource;
         }
 
+        public static BitmapSource ConvertImage(string path)
+        {
+            Bitmap bitmap = (Bitmap)Bitmap.FromFile($"{path}", true);
+            bitmapSource = BitmapToBitmapSource(bitmap);
+
+            return bitmapSource;
+        }
+
         private static BitmapSource BitmapToBitmapSource(Bitmap source)
         {
             return System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(

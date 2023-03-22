@@ -54,13 +54,25 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <TextBox BorderThickness="0" Margin="5" Background="#415369" Foreground="White" Height="20" VerticalAlignment="Top" Text="{Binding SortEvent, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox BorderThickness="0" Margin="5,5,45,5" Background="#415369" Foreground="White" Height="20" VerticalAlignment="Top" Text="{Binding SortEvent, UpdateSourceTrigger=PropertyChanged}">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </TextBox.Resources>
             </TextBox>
+
+            <Button Style="{StaticResource MyButton}"  
+                    Command="{Binding ResetCommand}"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,2,15,0" Height="24" Width="24" 
+                    BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="{Binding ResetImage}"/>
+                </Button.Background>
+            </Button>
+
             <ListView BorderThickness="0"
                       Background="#212a35" 
                       Margin="-40,25,0,0" 

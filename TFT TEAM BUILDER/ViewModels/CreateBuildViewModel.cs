@@ -4,6 +4,7 @@ using TFT_TEAM_BUILDER.Core;
 using GongSolutions.Wpf.DragDrop;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace TFT_TEAM_BUILDER.ViewModels
 {
@@ -15,6 +16,7 @@ namespace TFT_TEAM_BUILDER.ViewModels
 
         public Commands TraitSortCommand { get; set; } 
         public Commands SaveTeamCommand { get; set; }
+        public Commands ResetCommand { get; set; }
 
         public static ObservableCollection<Champions> champions { get; set; } // Список всех чемпионов
         public static ObservableCollection<Champions> offerList { get; set; } // Список с отсортированными чемпионами отображаемые на вью которые могут подойти в команду
@@ -31,6 +33,16 @@ namespace TFT_TEAM_BUILDER.ViewModels
         private string searchText;
         private string saveInformationText = "Название сборки";
         private string fileName;
+
+        public BitmapSource ResetImage
+        {
+            get
+            {
+                BitmapSource image = ImageConventor.ConvertImage("Content\\reset.png");
+
+                return image;
+            }
+        }
 
         public string saveFileName
         {
@@ -171,6 +183,10 @@ namespace TFT_TEAM_BUILDER.ViewModels
             itemsView = ItemsView(allItems);
 
             TraitSortCommand = new Commands(TraitSort);
+            ResetCommand = new Commands(obj =>
+            {
+                sortList = new ObservableCollection<Champions>(JsonData.GetChampions());
+            });
             SaveTeamCommand = new Commands(obj => 
             {
                 if (saveFileName != null)

@@ -195,20 +195,20 @@
 			"h": 48
 		}
 	},
-	"TFT8_EmblemItems/TFT8_Item_InterPolarisEmblemItem": {
-		"id": "TFT8_Item_InterPolarisEmblemItem",
-		"name": "LaserCorps Emblem",
+	"TFT8_EmblemItems/TFT8_Item_InfiniteamEmblemItem": {
+		"id": "TFT8_Item_InfiniteamEmblemItem",
+		"name": "InfiniTeam Emblem",
 		"craft": ["B.F. Sword", "Spatula"],
 		"image": {
-			"full": "TFT8_Item_InterPolarisEmblemItem.png",
-			"sprite": "tft-item3.png",
-			"group": "tft-item",
-			"x": 384,
-			"y": 48,
-			"w": 48,
-			"h": 48
+		  "full": "TFT8_Item_InfiniteamEmblemItem.png",
+		  "sprite": "tft-item9.png",
+		  "group": "tft-item",
+		  "x": 0,
+		  "y": 0,
+		  "w": 48,
+		  "h": 48
 		}
-	},
+	  },
 	"TFT8_EmblemItems/TFT8_Item_MascotEmblemItem": {
 		"id": "TFT8_Item_MascotEmblemItem",
 		"name": "Mascot Emblem",
